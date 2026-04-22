@@ -32,6 +32,12 @@ fi
 
 export PYTORCH_ALLOC_CONF=expandable_segments:True
 
+# Auto-detect bf16 (RTX 4090, A100) vs fp16 fallback
+PRECISION_FLAG="--fp16"
+if python -c "import torch; assert torch.cuda.is_bf16_supported()" 2>/dev/null; then
+    PRECISION_FLAG="--bf16"
+fi
+
 # Which batch sizes to run (default: all)
 TARGET_BATCH="${1:-all}"
 
@@ -39,10 +45,10 @@ TARGET_BATCH="${1:-all}"
 # Derived via: LR = 1e-3 * (batch / 128)  [Goyal et al., 2017 + Raffel et al., 2020]
 # Capped at 3e-4 for batch 64 per HuggingFace T5-small guidelines
 declare -A LR_CANDIDATES
-LR_CANDIDATES[8]="3e-5 6.25e-5 1.25e-4"
-LR_CANDIDATES[16]="6.25e-5 1.25e-4 2.5e-4"
-LR_CANDIDATES[32]="1.25e-4 2.5e-4 5e-4"
-LR_CANDIDATES[64]="1.25e-4 2.5e-4 3e-4"
+LR_CANDIDATES[8]="2.5e-5 5e-5"
+LR_CANDIDATES[16]="5e-5 1e-4"
+LR_CANDIDATES[32]="1e-4 2e-4"
+LR_CANDIDATES[64]="2e-4 4e-4"
 
 # ---- Models ----
 # d512 = T5-small standard (60.5M params)
@@ -52,7 +58,7 @@ MODEL_DIMS[d512]=512
 MODEL_DIMS[d320]=320
 
 SWEEP_SAMPLES=40000
-SWEEP_EPOCHS=8
+SWEEP_EPOCHS=5
 
 run_sweep() {
     local BATCH=$1
@@ -85,6 +91,7 @@ run_sweep() {
         --gradient-accumulation-steps 1 \
         --learning-rate "$LR" \
         --warmup-ratio 0.1 \
+        --lr-scheduler-type linear \
         --weight-decay 0.01 \
         --evaluation-strategy epoch \
         --save-strategy epoch \
@@ -94,7 +101,9 @@ run_sweep() {
         --max-target-length 128 \
         --logging-steps 50 \
         --metric-for-best-model bleu \
-        --fp16 \
+        --early-stopping-patience 2 \
+        --dataloader-num-workers 4 \
+        $PRECISION_FLAG \
         --seed 42 \
         --report-to none \
         2>&1 | tee "${RUN_DIR}/sweep.log"

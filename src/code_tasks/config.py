@@ -32,7 +32,9 @@ class PipelineConfig:
     weight_decay: float = 0.0
     num_train_epochs: float = 3.0
     warmup_ratio: float = 0.0
+    lr_scheduler_type: str = "linear"
     max_grad_norm: float = 1.0
+    early_stopping_patience: int | None = None
     evaluation_strategy: str = "epoch"
     save_strategy: str = "epoch"
     eval_steps: int | None = None

@@ -33,6 +33,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--weight-decay", type=float, default=0.0)
     parser.add_argument("--num-train-epochs", type=float, default=3.0)
     parser.add_argument("--warmup-ratio", type=float, default=0.0)
+    parser.add_argument("--lr-scheduler-type", default="linear", choices=["linear", "cosine", "cosine_with_restarts", "polynomial", "constant", "constant_with_warmup"])
+    parser.add_argument("--early-stopping-patience", type=int, default=None)
     parser.add_argument("--evaluation-strategy", choices=["no", "steps", "epoch"], default="epoch")
     parser.add_argument("--save-strategy", choices=["no", "steps", "epoch"], default="epoch")
     parser.add_argument("--eval-steps", type=int, default=None)

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import torch
 from datasets import Dataset
-from transformers import DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments, set_seed
+from transformers import DataCollatorForSeq2Seq, EarlyStoppingCallback, Seq2SeqTrainer, Seq2SeqTrainingArguments, set_seed
 
 from .config import PipelineConfig
 from .datasets import PreparedDatasets, load_text_datasets
@@ -57,6 +57,9 @@ def run_pipeline(config: PipelineConfig) -> None:
         data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model, label_pad_token_id=-100)
 
         timing_callback = TimingCallback(timing)
+        callbacks = [timing_callback]
+        if config.early_stopping_patience is not None:
+            callbacks.append(EarlyStoppingCallback(early_stopping_patience=config.early_stopping_patience))
 
         trainer = Seq2SeqTrainer(
             model=model,
@@ -66,7 +69,7 @@ def run_pipeline(config: PipelineConfig) -> None:
             tokenizer=tokenizer,
             data_collator=data_collator,
             compute_metrics=compute_metrics if (config.do_eval or config.do_test) else None,
-            callbacks=[timing_callback],
+            callbacks=callbacks,
         )
 
     # --- Training (timed via callback + wall clock) ---
@@ -198,6 +201,7 @@ def _build_training_args(config: PipelineConfig) -> Seq2SeqTrainingArguments:
         weight_decay=config.weight_decay,
         num_train_epochs=config.num_train_epochs,
         warmup_ratio=config.warmup_ratio,
+        lr_scheduler_type=config.lr_scheduler_type,
         max_grad_norm=config.max_grad_norm,
         logging_steps=config.logging_steps,
         save_total_limit=config.save_total_limit,
