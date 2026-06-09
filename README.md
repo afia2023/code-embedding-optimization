@@ -35,6 +35,14 @@ Before choosing the compressed dimension, PCA was applied to the T5-small shared
 
 **Conclusion:** `hidden_dim = 320` captures ~90% of the embedding variance while reducing the model from 60.5M to 27.5M parameters (37% reduction). PCA is used only as an analysis tool to justify the dimension choice — it does not initialize model weights.
 
+
+What your project does:
+1. Can d320 learn from scratch?
+2. Does domain pre-training help d320?
+3. By compressing the original d512 weights reduce the model performance? 
+
+
+
 **Run the analysis:**
 
 ```bash
