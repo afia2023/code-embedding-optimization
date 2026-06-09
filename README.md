@@ -121,14 +121,12 @@ The corpus is derived from the [LEONID replication package](https://github.com/a
 
 ### Model Weights
 
-| File | Contents | Size |
-|------|----------|------|
-| `phase2_pretrained_models.zip` | d320 + d512 pre-trained weights (500k steps) | 312MB |
-| `lr_sweep_models.zip` | 16 LR sweep fine-tuned models (all batch sizes) | 1.5GB |
-| `phase1_finetuning_models.zip` | 8 random-init fine-tuned models | 1.3GB |
-| `phase3_finetuning_models.zip` | 8 pretrained-init fine-tuned models | 1.3GB |
-
-> **Model links:** *(add Google Drive links here after upload)*
+| File | Contents | Size | Link |
+|------|----------|------|------|
+| `phase2_pretrained_models.zip` | d320 + d512 pre-trained weights (500k steps) | 312MB | [Download](https://drive.google.com/file/d/1u7UI6rX1AHKbYzU5yJzIu4XECnAlLjot/view?usp=sharing) |
+| `lr_sweep_models.zip` | 16 LR sweep fine-tuned models (all batch sizes) | 1.5GB | [Download](https://drive.google.com/file/d/1HYSSuQgJJBlrO6mjVs1P45bSGe7V6UQY/view?usp=sharing) |
+| `phase1_finetuning_models.zip` | 8 random-init fine-tuned models | 1.3GB | [Download](https://drive.google.com/file/d/1XZ3Zbv-hw_LPbytGxeaF9NlkJB-n9oJR/view?usp=sharing) |
+| `phase3_finetuning_models.zip` | 8 pretrained-init fine-tuned models | 1.3GB | [Download](https://drive.google.com/file/d/1oFiyYmZ8AoxaiPhFfDTIgPOBCxN-Jcf1/view?usp=sharing) |
 
 ---
 
