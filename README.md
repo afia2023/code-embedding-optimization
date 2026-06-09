@@ -107,9 +107,19 @@ Fine-tuning d512 and d320 models initialized from the pre-trained checkpoints (P
 
 ---
 
-## Model Downloads (Google Drive)
+## Downloads (Google Drive)
 
-Pre-trained and fine-tuned model weights are hosted on Google Drive (too large for GitHub).
+Model weights and the pre-training corpus are hosted on Google Drive (too large for GitHub).
+
+### Pre-training Corpus
+
+| File | Contents | Size | Link |
+|------|----------|------|------|
+| `pretraining.tsv` | 12,671,475 Java methods (span-corruption format) | 4.4GB | [Download](https://drive.google.com/drive/folders/1Sez9Nr_9RUC6XeaDlMkO5u2FCXWqDfY0?usp=drive_link) |
+
+The corpus is derived from the [LEONID replication package](https://github.com/antonio-mastropaolo/automating-logging-acitivities) (Mastropaolo et al., JSS 2024), which mined 12,916,063 Java methods from 6,352 GitHub repositories. Methods without log statements (12,671,475) were used for pre-training.
+
+### Model Weights
 
 | File | Contents | Size |
 |------|----------|------|
@@ -118,7 +128,7 @@ Pre-trained and fine-tuned model weights are hosted on Google Drive (too large f
 | `phase1_finetuning_models.zip` | 8 random-init fine-tuned models | 1.3GB |
 | `phase3_finetuning_models.zip` | 8 pretrained-init fine-tuned models | 1.3GB |
 
-> **Links:** *(add Google Drive links here after upload)*
+> **Model links:** *(add Google Drive links here after upload)*
 
 ---
 
