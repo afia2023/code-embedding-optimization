@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-embedding-optimization"
+version = "0.1.0"
+description = "Modular Hugging Face training and evaluation pipeline for code summarization and generation."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "accelerate>=0.27.0",
+  "datasets>=2.16.0",
+  "rouge-score>=0.1.2",
+  "sacrebleu>=2.4.0",
+  "torch>=2.1.0",
+  "transformers>=4.39.0",
+]
+
+[project.scripts]
+code-embedding-optimization = "code_tasks.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

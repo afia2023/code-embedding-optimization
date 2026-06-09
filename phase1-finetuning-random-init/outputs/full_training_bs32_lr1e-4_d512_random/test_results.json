@@ -1,0 +1,14 @@
+{
+    "test_bleu": 13.8539,
+    "test_chrf": 32.2173,
+    "test_exact_match": 0.0183,
+    "test_gen_len": 41.1334,
+    "test_loss": 2.667553663253784,
+    "test_rouge1": 36.5836,
+    "test_rouge2": 14.4529,
+    "test_rougeL": 32.3583,
+    "test_runtime": 634.2183,
+    "test_samples_per_second": 17.273,
+    "test_steps_per_second": 0.541,
+    "test_wall_clock_seconds": 634.22
+}

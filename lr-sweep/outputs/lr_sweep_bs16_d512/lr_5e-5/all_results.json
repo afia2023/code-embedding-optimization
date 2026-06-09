@@ -1,0 +1,21 @@
+{
+    "epoch": 5.0,
+    "total_flos": 2.512191257051136e+16,
+    "train_loss": 4.698852371826172,
+    "train_runtime": 3346.5333,
+    "train_samples_per_second": 59.763,
+    "train_steps_per_second": 3.735,
+    "train_wall_clock_seconds": 3346.753,
+    "validation_bleu": 6.671,
+    "validation_chrf": 21.5087,
+    "validation_exact_match": 0.0,
+    "validation_gen_len": 55.8068,
+    "validation_loss": 4.096077919006348,
+    "validation_rouge1": 24.8683,
+    "validation_rouge2": 7.1695,
+    "validation_rougeL": 21.8715,
+    "validation_runtime": 448.2641,
+    "validation_samples_per_second": 11.154,
+    "validation_steps_per_second": 0.698,
+    "validation_wall_clock_seconds": 448.266
+}

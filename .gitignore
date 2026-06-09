@@ -1,0 +1,23 @@
+# Model weights
+*.safetensors
+*.bin
+optimizer.pt
+
+# Checkpoints
+checkpoint-*/
+
+# Training corpus
+Pre-training/
+
+# Virtual environments
+pretrainenv/
+.venv/
+afiabase/
+
+# Python cache
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Mac metadata
+.DS_Store

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk -F'\\\\t' '$1==\"\" || $2==\"\"' /scratch/afia/code-embedding-optimization-pretrainning/Pre-training/TSV/pretraining.tsv)",
+      "Bash(awk -F'\\\\t' '$1 !~ /extra_id/ || $2 !~ /extra_id/' /scratch/afia/code-embedding-optimization-pretrainning/Pre-training/TSV/pretraining.tsv)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total --format=csv,noheader)",
+      "Bash(lscpu)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(chmod +x /scratch/afia/code-embedding-optimization-svd/scripts/full_training.sh)",
+      "Bash(chmod +x /scratch/afia/code-embedding-optimization-svd/scripts/setup_vm.sh)",
+      "Bash(git init *)",
+      "Bash(git checkout *)"
+    ]
+  }
+}

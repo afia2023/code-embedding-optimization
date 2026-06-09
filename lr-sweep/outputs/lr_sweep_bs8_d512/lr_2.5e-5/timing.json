@@ -1,0 +1,25 @@
+{
+  "total_train_wall_clock_seconds": 6069.341,
+  "total_eval_seconds": 4930.816,
+  "pure_training_seconds": 1138.525,
+  "total_test_seconds": 0.0,
+  "epoch_seconds": [
+    386.151,
+    380.399,
+    387.167,
+    387.764,
+    386.294
+  ],
+  "eval_seconds": [
+    842.066,
+    839.961,
+    835.795,
+    806.992,
+    804.137,
+    801.864
+  ],
+  "data_load_seconds": 8.576,
+  "model_load_seconds": 2.237,
+  "tokenization_seconds": 7.955,
+  "total_pipeline_seconds": 6088.109
+}

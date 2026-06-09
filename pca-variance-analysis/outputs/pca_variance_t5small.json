@@ -1,0 +1,24 @@
+{
+  "model": "t5-small",
+  "original_hidden_dim": 512,
+  "analysis": [
+    {
+      "threshold": 0.9,
+      "recommended_hidden_dim": 322,
+      "variance_captured": 0.900695,
+      "reduction_pct": 37.11
+    },
+    {
+      "threshold": 0.95,
+      "recommended_hidden_dim": 379,
+      "variance_captured": 0.950316,
+      "reduction_pct": 25.98
+    },
+    {
+      "threshold": 0.99,
+      "recommended_hidden_dim": 451,
+      "variance_captured": 0.990077,
+      "reduction_pct": 11.91
+    }
+  ]
+}

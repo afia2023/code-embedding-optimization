@@ -1,0 +1,15 @@
+{
+    "epoch": 15.0,
+    "validation_bleu": 15.8649,
+    "validation_chrf": 33.6727,
+    "validation_exact_match": 0.1544,
+    "validation_gen_len": 43.6294,
+    "validation_loss": 2.403972864151001,
+    "validation_rouge1": 40.0131,
+    "validation_rouge2": 18.3316,
+    "validation_rougeL": 35.5733,
+    "validation_runtime": 535.3379,
+    "validation_samples_per_second": 9.682,
+    "validation_steps_per_second": 0.605,
+    "validation_wall_clock_seconds": 535.342
+}
